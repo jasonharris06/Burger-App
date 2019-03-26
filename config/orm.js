@@ -1,8 +1,6 @@
 var connection = require("../config/connection.js");
 
-// selectAll()
-// insertOne()
-// updateOne()
+
 var orm = {
     all: function(tableInput, cb) {
         connection.query("SELECT * FROM "+tableInput+";", function(err, result){
@@ -26,6 +24,7 @@ var orm = {
             cb(result);
         })
     }
+    
 
 
 }

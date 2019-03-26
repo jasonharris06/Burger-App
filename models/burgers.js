@@ -15,6 +15,7 @@ var burger = {
     create: function(name,cb){
         orm.create("burgers", name, cb);
     }
+    
 }
 
 module.exports = burger;

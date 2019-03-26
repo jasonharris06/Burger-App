@@ -1,20 +1,26 @@
-<div class="container">
+<div class="container main-container">
+    <div class="burger-container">
+        
+        <img src="assets/img/Burger.jpg" alt="Burger">
+        
+    </div>
     <div class="row">
-        <div class="col-xs-12 text-center" id="top-bar">
+        <div class="col-md-12 text-center" id="top-bar" style="padding: 8px">
             <h1>Eat Me, I'm a Burger!</h1>
         </div>
-        <div class="col-xs-6 text-center" class="task">
-            <div class="row">
+    </div>
+    <div class="row">
+        <div class="col-md-6 text-center" class="task">
+            <div class="row" >
                 {{#each burger_data}}
                     {{#unless this.devoured}}
-                <div class="col-xs-9 text-center">
-                    <pre>{{this.id}}. {{this.burger_name}}</pre>
+                <div class="col-md-6 text-center"  >
+                    {{this.id}}. {{this.burger_name}}
                 </div>
-            <div class="col-xs-3 text-center">
-                <form method="POST" action="/burgers/update?_method=PUT" class="button-size">
+            <div class="col-md-6 text-center">
+                <form method="POST" action="/burgers/update?_method=POST" class="btn btn-primary" >
                     <input type="hidden" name="burger_id" type="text"
                     value={{this.id}}>
-                    <br>
                     <button type="submit" class="btn btn-default">
                         DEVOUR IT!
                     </button>                
@@ -25,7 +31,7 @@
             </div>
         </div>
 
-        <div class="col-xs-6 text-center" class="task">
+        <div class="col-md-6 text-center" class="task">
             {{#each burger_data}}
                 {{#if this.devoured}}
                 <input class="form-control" type="text" placeholder="{{this.id}}. {{this.burger_name}}" readonly>
@@ -35,15 +41,35 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container form">
     <div class="row">
-        <div class="col-xs-12 text-center enter_section">
+        <div class="col-md-12 text-center enter_section">
+            <h5>Enter in a Burger you would like to eat!</h5>
             <form action="/burgers/create" method="POST">
                 <input type="text" name="burger_name" class="form-control"
                 value="" id="enter_text">
                 <button type="submit" class="btn btn-primary" id="text-enter-button">SUBMIT</button>
             </form>
-            <p>Enter in a Burger you would like to eat!</p>
         </div>
     </div>
 </div>
+<style>
+    .burger-container{
+        max-width: 250px;
+        margin: auto
+    }
+    img{
+        width: 100%
+    }
+    .main-container, .form{
+        background: white;
+        padding: 9px;
+        
+    }
+    
+    
+    body{
+        font-family: 'Source Sans Pro', sans-serif;;
+    }
+    
+</style>

@@ -1,0 +1,7 @@
+.btn, .btn-primary{
+    color: black; 
+    background-color: aqua;
+};
+.task {
+    border-block-start-color: black;
+}
